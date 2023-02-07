@@ -35,6 +35,7 @@ const generateGalaxy = () => {
 
   const material = new THREE.PointsMaterial({
     size: parameters.size,
+    sizeAttenuation: true,
   });
 
   console.log(geometry);
