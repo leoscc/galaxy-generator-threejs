@@ -40,7 +40,8 @@ const generateGalaxy = () => {
     blending: THREE.AdditiveBlending,
   });
 
-  console.log(geometry);
+  const points = new THREE.Points(geometry, material);
+  scene.add(points);
 };
 
 generateGalaxy();
