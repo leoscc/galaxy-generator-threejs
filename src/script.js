@@ -16,6 +16,7 @@ const scene = new THREE.Scene();
 
 // Galaxy
 const parameters = {};
+parameters.count = 1000; // particles amount
 
 const generateGalaxy = () => {
   console.log("generate the galaxy");
