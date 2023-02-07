@@ -20,6 +20,7 @@ parameters.count = 1000; // particles amount
 
 const generateGalaxy = () => {
   const geometry = new THREE.BufferGeometry();
+  const positions = new Float32Array(parameters.count * 3); // * 3 => each vertex will have x,y,z
 };
 
 generateGalaxy();
