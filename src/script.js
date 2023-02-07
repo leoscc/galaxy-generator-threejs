@@ -37,6 +37,7 @@ const generateGalaxy = () => {
     size: parameters.size,
     sizeAttenuation: true,
     depthWrite: false,
+    blending: THREE.AdditiveBlending,
   });
 
   console.log(geometry);
