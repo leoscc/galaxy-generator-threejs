@@ -17,6 +17,7 @@ const scene = new THREE.Scene();
 // Galaxy
 const parameters = {};
 parameters.count = 1000; // particles amount
+parameters.size = 0.02;
 
 const generateGalaxy = () => {
   const geometry = new THREE.BufferGeometry();
@@ -31,6 +32,10 @@ const generateGalaxy = () => {
   }
 
   geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
+
+  const material = new THREE.PointsMaterial({
+    size: parameters.size,
+  });
 
   console.log(geometry);
 };
