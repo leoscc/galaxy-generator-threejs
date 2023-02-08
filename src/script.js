@@ -26,6 +26,13 @@ let material = null;
 let points = null;
 
 const generateGalaxy = () => {
+  // destroy previous generated galaxy
+  if (points !== null) {
+    geometry.dispose();
+    material.dispose();
+    scene.remove(points);
+  }
+
   geometry = new THREE.BufferGeometry();
   const positions = new Float32Array(parameters.count * 3); // * 3 => each vertex will have x,y,z
 
@@ -39,7 +46,7 @@ const generateGalaxy = () => {
 
   geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
 
-  const material = new THREE.PointsMaterial({
+  material = new THREE.PointsMaterial({
     size: parameters.size,
     sizeAttenuation: true,
     depthWrite: false,
