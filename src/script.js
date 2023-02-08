@@ -6,7 +6,9 @@ import * as dat from "lil-gui";
  * Base
  */
 // Debug
-const gui = new dat.GUI();
+const gui = new dat.GUI({
+  width: 360,
+});
 
 // Canvas
 const canvas = document.querySelector("canvas.webgl");
@@ -45,6 +47,19 @@ const generateGalaxy = () => {
 };
 
 generateGalaxy();
+
+gui
+  .add(parameters, "count")
+  .min(100)
+  .max(1000000)
+  .step(100)
+  .onFinishChange(generateGalaxy);
+gui
+  .add(parameters, "size")
+  .min(0.001)
+  .max(0.1)
+  .step(0.001)
+  .onFinishChange(generateGalaxy);
 
 /**
  * Sizes
