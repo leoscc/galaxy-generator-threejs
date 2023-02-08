@@ -21,8 +21,12 @@ const parameters = {};
 parameters.count = 1000; // particles amount
 parameters.size = 0.02;
 
+let geometry = null;
+let material = null;
+let points = null;
+
 const generateGalaxy = () => {
-  const geometry = new THREE.BufferGeometry();
+  geometry = new THREE.BufferGeometry();
   const positions = new Float32Array(parameters.count * 3); // * 3 => each vertex will have x,y,z
 
   for (let i = 0; i < parameters.count; i++) {
@@ -42,7 +46,7 @@ const generateGalaxy = () => {
     blending: THREE.AdditiveBlending,
   });
 
-  const points = new THREE.Points(geometry, material);
+  points = new THREE.Points(geometry, material);
   scene.add(points);
 };
 
