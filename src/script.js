@@ -18,8 +18,8 @@ const scene = new THREE.Scene();
 
 // Galaxy
 const parameters = {};
-parameters.count = 1000; // particles amount
-parameters.size = 0.02;
+parameters.count = 100000; // particles amount
+parameters.size = 0.01;
 
 let geometry = null;
 let material = null;
