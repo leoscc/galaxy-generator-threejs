@@ -20,6 +20,7 @@ const scene = new THREE.Scene();
 const parameters = {};
 parameters.count = 100000; // particles amount
 parameters.size = 0.01;
+parameters.radius = 4;
 
 let geometry = null;
 let material = null;
@@ -70,6 +71,13 @@ gui
   .min(0.001)
   .max(0.1)
   .step(0.001)
+  .onFinishChange(generateGalaxy);
+
+gui
+  .add(parameters, "radius")
+  .min(0.01)
+  .max(20)
+  .step(0.01)
   .onFinishChange(generateGalaxy);
 
 /**
