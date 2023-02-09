@@ -49,9 +49,9 @@ const generateGalaxy = () => {
       console.log(i, branchAngle);
     }
 
-    positions[i3 + 0] = Math.cos(branchAngle); // x
+    positions[i3 + 0] = Math.cos(branchAngle) * radius; // x
     positions[i3 + 1] = 0; // y
-    positions[i3 + 2] = Math.sin(branchAngle); // z
+    positions[i3 + 2] = Math.sin(branchAngle) * radius; // z
   }
 
   geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
