@@ -22,6 +22,7 @@ parameters.count = 100000; // particles amount
 parameters.size = 0.01;
 parameters.radius = 4;
 parameters.branches = 3;
+parameters.spin = 1;
 
 let geometry = null;
 let material = null;
@@ -94,6 +95,13 @@ gui
   .min(2)
   .max(20)
   .step(1)
+  .onFinishChange(generateGalaxy);
+
+gui
+  .add(parameters, "spin")
+  .min(-5)
+  .max(5)
+  .step(0.001)
   .onFinishChange(generateGalaxy);
 
 /**
