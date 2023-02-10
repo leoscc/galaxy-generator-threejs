@@ -44,6 +44,9 @@ const generateGalaxy = () => {
   const positions = new Float32Array(parameters.count * 3); // * 3 => each vertex will have x,y,z
   const colors = new Float32Array(parameters.count * 3); // * 3 => r,g,b
 
+  const colorInside = new THREE.Color(parameters.insideColor); // rgb
+  const colorOutside = new THREE.Color(parameters.outsideColor); // rgb
+
   for (let i = 0; i < parameters.count; i++) {
     const i3 = i * 3;
 
