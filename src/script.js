@@ -42,10 +42,12 @@ const generateGalaxy = () => {
 
   geometry = new THREE.BufferGeometry();
   const positions = new Float32Array(parameters.count * 3); // * 3 => each vertex will have x,y,z
+  const colors = new Float32Array(parameters.count * 3); // * 3 => r,g,b
 
   for (let i = 0; i < parameters.count; i++) {
     const i3 = i * 3;
 
+    // Position
     const radius = Math.random() * parameters.radius; // Random value between 0 and radius
     const FULL_CIRCLE = Math.PI * 2;
     const spinAngle = radius * parameters.spin;
@@ -67,9 +69,15 @@ const generateGalaxy = () => {
     positions[i3 + 0] = Math.cos(branchAngle + spinAngle) * radius + randomX; // x
     positions[i3 + 1] = randomY; // y
     positions[i3 + 2] = Math.sin(branchAngle + spinAngle) * radius + randomZ; // z
+
+    // Color
+    colors[i3 + 0] = 1; // R
+    colors[i3 + 1] = 0; // G
+    colors[i3 + 2] = 0; // B
   }
 
   geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
+  geometry.setAttribute("color", new THREE.BufferAttribute(colors, 3));
 
   material = new THREE.PointsMaterial({
     size: parameters.size,
