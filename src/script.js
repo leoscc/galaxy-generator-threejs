@@ -25,6 +25,8 @@ parameters.branches = 3;
 parameters.spin = 1;
 parameters.randomness = 0.2;
 parameters.randomnessPower = 3;
+parameters.insideColor = "#ff6030";
+parameters.outsideColor = "#1b3984";
 
 let geometry = null;
 let material = null;
@@ -74,6 +76,7 @@ const generateGalaxy = () => {
     sizeAttenuation: true,
     depthWrite: false,
     blending: THREE.AdditiveBlending,
+    color: 0x716caa,
   });
 
   points = new THREE.Points(geometry, material);
@@ -129,6 +132,9 @@ gui
   .max(10)
   .step(0.01)
   .onFinishChange(generateGalaxy);
+
+gui.addColor(parameters, "insideColor").onFinishChange(generateGalaxy);
+gui.addColor(parameters, "outsideColor").onFinishChange(generateGalaxy);
 
 /**
  * Sizes
