@@ -74,9 +74,12 @@ const generateGalaxy = () => {
     positions[i3 + 2] = Math.sin(branchAngle + spinAngle) * radius + randomZ; // z
 
     // Color
-    colors[i3 + 0] = 1; // R
-    colors[i3 + 1] = 0; // G
-    colors[i3 + 2] = 0; // B
+    const mixedColor = colorInside.clone();
+    mixedColor.lerp(colorOutside, 0);
+
+    colors[i3 + 0] = mixedColor.r; // R
+    colors[i3 + 1] = mixedColor.g; // G
+    colors[i3 + 2] = mixedColor.b; // B
   }
 
   geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
