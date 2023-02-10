@@ -76,7 +76,7 @@ const generateGalaxy = () => {
     sizeAttenuation: true,
     depthWrite: false,
     blending: THREE.AdditiveBlending,
-    color: 0x716caa,
+    vertexColors: true,
   });
 
   points = new THREE.Points(geometry, material);
