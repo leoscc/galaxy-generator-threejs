@@ -23,6 +23,7 @@ parameters.size = 0.01;
 parameters.radius = 4;
 parameters.branches = 3;
 parameters.spin = 1;
+parameters.randomness = 0.2;
 
 let geometry = null;
 let material = null;
@@ -41,6 +42,7 @@ const generateGalaxy = () => {
 
   for (let i = 0; i < parameters.count; i++) {
     const i3 = i * 3;
+
     const radius = Math.random() * parameters.radius; // Random value between 0 and radius
     const FULL_CIRCLE = Math.PI * 2;
     const spinAngle = radius * parameters.spin;
@@ -98,6 +100,13 @@ gui
   .add(parameters, "spin")
   .min(-5)
   .max(5)
+  .step(0.001)
+  .onFinishChange(generateGalaxy);
+
+gui
+  .add(parameters, "randomness")
+  .min(0)
+  .max(2)
   .step(0.001)
   .onFinishChange(generateGalaxy);
 
